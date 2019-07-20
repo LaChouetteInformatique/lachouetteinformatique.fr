@@ -1,0 +1,219 @@
+
+
+header {
+    //border: 2px solid red;
+    background-color: $nav-bg-color;
+    word-wrap: break-word;
+    position: relative; // .phone-number positionning
+    z-index: 50;
+
+    .shadow-box {
+        //border: 2px solid red;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner {
+        //border: 2px solid red;
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+        overflow: visible;
+
+        .title {
+            // border: 2px solid red;
+            margin: 0 auto;
+            width: fit-content;
+    
+            //color: $color-2;
+            color: $color-1;
+    
+            font-family: 'Courgette', cursive, sans-serif;
+            // font-size: 48px;
+            font-size: calc(32px + 1vw);
+            font-weight: 400;
+        }
+        
+        .sub-title {
+            // border: 2px solid red;
+            margin: 0 auto 5px;
+            width: fit-content;
+            
+            font-family: /*'Merriweather Sans',*/ 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
+            
+            font-size: calc( 12px + 0.3vw);
+            // font-size: 16px;
+            font-weight: 400;
+            color: $color-3;
+        }
+    }
+
+    .logo {
+        //border: 2px solid red;
+        position: absolute;
+
+        right: 100%;
+        top: -18px;
+        width: calc(118px + 1vw);
+        height: calc(118px + 1vw);
+        //transform: translate( calc(50px - 4vw), 0.6vw);
+
+        // Owl logo should go over anything else, but clicks should go through and reach menu entries
+        pointer-events: none;
+    }
+
+    .logo-mobile {
+        display: none;
+    }
+
+    .nav-menu {
+        //border: 1px solid black;
+        width: 100%;
+        //background-color: saturate($color-3,30%);
+        background-color: lighten($color-3,5%);
+        // background-image: linear-gradient(180deg, $color-2 0%, lighten($color-3,5%) 50%, $color-2 100%);
+        
+        font-family: /*'Merriweather Sans',*/ 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        //text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.541);
+        font-weight: 700;
+        //font-weight: 800;
+        color: white;
+
+        ul {
+            //border: 1px solid black;
+            list-style-type: none;
+            margin: 0;
+            padding: 0 0 0 60px;
+            
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+
+            justify-content: center;
+            align-items: stretch;
+        }
+    
+        li {
+            //border: 1px solid rgb(0, 162, 255);
+            text-align: center;
+            display: flex;
+            align-items: center;
+   
+            a {
+                display: inline-block;
+                color: inherit;
+                padding: 8px 8px;
+                padding-left: calc(6px + 2vw);
+                padding-right: calc(6px + 2vw);
+                flex: 1;
+            }
+    
+            a:hover {
+                //background-color: rgba(222, 222, 222, 0.466);
+                //background-color: rgba($color-1, 0.466);
+                background-color: $color-2;
+                //background-color: $color-1;
+            }
+    
+            a.active {
+                background-color: #ffffff;
+                box-shadow: none;
+            }
+        }
+    }
+
+    #phone-number {
+        //border: 1px solid green;
+        position: absolute;
+        width: 220px;
+        left: -15px;
+        //bottom: -38px;
+        // top: 10px;
+        z-index: -1;
+    
+        #svg-phonenumber-fond, #svg-phonenumber-phone {
+            fill: $color-2;
+            //fill: $color-1;
+        }
+
+        #svg-phonenumber-text {
+            font-family: /*'Merriweather Sans',*/ sans-serif;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        #svg-phonenumber-text, #svg-phonenumber-ellipse {
+            fill:#fff;
+        }
+
+        #svg-phonenumber-text, #svg-phonenumber-logo {
+            transform: translateY(3px);
+        }
+    }
+}
+
+.sticky { // scrolling down activate sticky menu if windows is big enough (javascript)
+    position: fixed;
+    top: 0;
+    width: 100%;
+    //z-index: 10; // fixed header goes over the rest
+}
+
+@media only screen and (max-width: 650px) { // if screen width less than usual phone screen + safety magic number (414px + 136px)
+
+    header { // mobile-menu
+
+        .banner {
+            margin: 0;
+            display: grid;
+            width: 100%;
+            grid-template-columns: 100px auto;
+                  
+            .title {
+                margin: 10px 0;
+                font-size: 20px;
+                grid-column-start: 2;
+            }
+    
+            .sub-title { // hide sub-title
+                display: none;
+            }
+    
+            .logo {
+                display: none;
+                
+            }
+
+            .logo-mobile {
+                position: absolute;
+                display: block;
+                // height: 100px;
+                // width: 100px;
+                left: 0;
+                top: 0px;
+            }
+        }
+
+        .nav-menu {
+            display: none;
+        }
+
+        #click-to-call {
+            position: absolute;
+            width: 180px;
+            height: 38.3px;
+        }
+    
+        #click-to-call, #phone-number {
+            left: 70px;
+        }
+    }
+}
+
+@media only screen and (max-width: 350px) { // if screen width <= small phone
+    header .banner .title {
+                font-size: 15px;
+            }
+}

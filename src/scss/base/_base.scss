@@ -1,0 +1,38 @@
+@import 'typography';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    //border: 1px solid lightblue;
+    margin: 0;
+    background-color: $body-bg-color;
+    color: $color-1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+
+    // Push footer to page's bottom Step 1/2
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    flex-grow: 1; // Push footer to page's bottom Step 2/2
+}
+
+.wrapper {
+    //border: 1px solid green;
+    max-width: $max-width-wrapper;
+    margin: 0 auto 1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+@media only screen and (max-width: 650px) {
+    body {
+        font-size: 16px;
+    }
+}

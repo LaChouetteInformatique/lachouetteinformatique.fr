@@ -1,0 +1,36 @@
+#zone-intervention {
+
+    h1 {
+        margin-bottom: 0;
+    }
+
+    figure {
+        margin: 0;
+    }
+
+    figcaption {
+
+        p:nth-child(2){
+            margin: 0 1em;
+        }
+    }
+
+    iframe {
+        width: 100%;
+        height: 50vh;
+        max-height: 500px;
+        min-height: 300px;
+        border-radius: 0.5em;
+        overflow: hidden;
+        border: 1px solid $color-1;
+    }
+
+    .noscript {
+        padding: 1px 20px;
+        margin-bottom: 2em;
+        text-align: center;
+    }
+}
+
+
+

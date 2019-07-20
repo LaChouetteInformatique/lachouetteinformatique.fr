@@ -1,0 +1,46 @@
+/* -------------------------------------------------------
+ * Variables
+ * ------------------------------------------------------- */
+
+//$assets-path: '../../../../../Users/LaChouetteInfo/Webdev/_assets/';
+//$assets-path: '../';
+$assets-path: '../../assets';
+
+$max-width-wrapper: 900px;
+
+// Blue tone
+// $color-1: #4545dd;
+// $color-2 : #5761be;
+// $color-3 : #8e9ed3;
+
+$color-1 : #6f2db6;
+$color-2 : #8657BE;
+$color-3 : #AE8ED3;
+//$color-4 : #260057;
+//$color-5 : #BFA1E2; // = lighten($color-3,5%)
+$color-6 : #fcd5ff;
+$color-7 : #c665ff;
+
+//$color-10 : #42B0F5;
+
+
+// BACKGROUND COLORS
+// $bg-color-1: #e37682;
+// $bg-color-2: #5f4d93;
+// $linear-gradiant-1: linear-gradient(45deg, $bg-color-1 15%, $bg-color-2 85%);
+
+// HR COLOR
+$hr-color-1: #efa8b0;
+$hr-color-2: #a89cc8;
+$hr-color-3: #8cc9f0;
+$hr-linear-grandient: linear-gradient(90deg, $hr-color-1, $hr-color-2, $hr-color-3);
+
+// GRADIENTS COLORS
+// $gradient-color-1 : #eb5ec0;
+// $gradient-color-2 : #8c00ff;
+// $gradient-color-3 : #42b0f5;
+
+// NAV BG COLOR:
+$nav-bg-color: rgba(247, 247, 247, 0.95);
+// BODY BG COLOR:
+$body-bg-color: rgb(255, 255, 255);

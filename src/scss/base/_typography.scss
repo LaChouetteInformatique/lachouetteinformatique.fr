@@ -1,0 +1,26 @@
+// Image will rezize to fit inside screen area
+img {
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.svg-inline--fa {
+    height: 1em;
+    position: relative;
+    top: 0.2em;
+}
+
+button:focus {outline:0;}
+
+.info-bulle {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    cursor: pointer;
+}

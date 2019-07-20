@@ -1,0 +1,79 @@
+
+#presentation {
+
+    .presentation-intro {
+        p {
+            margin: 0.8em auto;
+            text-align: justify;
+        }
+    }
+
+    .presentation-card {
+        //border: 1px solid blue;
+        width: 14em;
+        transition: 0.3s ease;
+        margin: 15px 0;
+
+        p {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 0.85em;
+
+            &:nth-child(3) {
+                padding-bottom: 1em;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        }
+
+        img {
+            display: block;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border: 5px solid $color-1;
+            width: 70%;
+            height: auto;
+            margin: 15px auto;
+            transition: 0.5s ease;
+        }
+
+        &:hover {
+            transform: scale(1.1,1.1);
+        }
+    }
+
+    .presentation-text {
+        //border: 1px solid blue;
+        width: min-content;
+        min-width: 65%;
+        flex-grow: 1;
+        margin-left: 2vw;
+        text-align: justify;
+
+        h3 {
+            text-align: center;
+        }
+        
+        li {
+            font-size: 0.9em;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 650px) {
+    #presentation {
+
+        .wrapper {
+            margin-top: 2em;
+        }
+
+        .flex-row {
+            margin: 0.5em 0;
+        }
+
+        .presentation-card p{
+            font-size: 1.1em;
+        }
+    }
+}

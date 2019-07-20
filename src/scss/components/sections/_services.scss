@@ -1,0 +1,132 @@
+#services {
+
+    .service-type {
+        line-height: 2em;
+        // max-width: $max-width-wrapper;
+        margin: 0.8em auto;
+        text-align: center;
+    }
+
+    .toggle-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s ease-out;
+
+        text-align: justify;
+
+        .p1, .p2 {
+            padding: 0.8em 1.25em;
+            font-style: italic;
+        }
+        .p1 {
+            padding-bottom: 0;
+        }
+        .p2 {
+            padding-top: 0;
+        }
+    }
+
+    .noscript {
+        max-height: unset;
+    }
+
+    #close-button {
+        //border: 1px solid red;
+        font-size: 1em;
+        position: absolute;
+        right: 0.6em;
+        top: 0.6em;
+        width: 1em;
+        height: 1em;
+        opacity: 0.4;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+        
+
+        &:hover {
+            opacity: 1;
+        }
+        &:before, &:after {
+            position: absolute;
+            left: 0.55em;
+            top: -0.1em;
+            content: ' ';
+            height: 1em;
+            width: 0.2em;
+            background-color: $color-1;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+    
+    ul {
+        list-style:none;
+        font-size: 0.9em;
+    }
+
+    li:before {
+        content:"";
+        display:block;
+        float:left;
+        margin-left:-1.5em;
+        background-position:center;
+        background-repeat:no-repeat;
+        background-size:100%;
+    }
+
+    li.true:before {
+        height:1.5em;
+        width:1.5em;
+        transform: translate(0, -2px);
+        background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 12 11' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;'%3E%3Cg%3E%3Crect x='0.902' y='2.899' width='7.173' height='6.59' style='fill:none;stroke:%23001400;stroke-width:1.28px;'/%3E%3Cpath d='M10.54,2.964c-4.081,1.223 -6.26,5.934 -6.26,5.934c0,0 -2.043,-2.723 -3.175,-3.1c-0.23,-0.076 -0.104,-0.491 0.343,-0.38c0.884,0.219 2.249,1.561 2.537,1.787c0,0 0.21,-0.244 1.536,-1.673c1.255,-1.347 3.467,-2.617 4.384,-2.824c0.161,-0.036 0.541,-0.098 0.726,0.084c0.062,0.062 -0.013,0.155 -0.091,0.172Z' style='fill:%2308eb00;fill-rule:nonzero;'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    li.false:before {
+        height:1.3em;
+        width:1.3em;
+        transform: translate(0, 3px);
+        background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 11 11' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;'%3E%3Cg%3E%3Crect x='1.575' y='1.575' width='7.087' height='7.068' style='fill:none;stroke:%23140000;stroke-width:1.26px;'/%3E%3Cg%3E%3Cpath d='M9.209,2.123l-7.087,7.068l-0.547,-0.548l-0.547,-0.549l7.088,-7.067l1.093,1.096Z' style='fill:%23ff3131;'/%3E%3Cpath d='M9.209,8.094l-1.093,1.097l-7.088,-7.068l1.094,-1.096l7.087,7.067Z' style='fill:%23ff3131;'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    li.unchecked:before {
+        height:1em;
+        width:1em;
+        transform: translate(3px, 3px);
+        background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 9 9' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.5;'%3E%3Cg%3E%3Crect x='0.902' y='0.902' width='7.05' height='7.05' style='fill:none;stroke:%23001400;stroke-width:1.28px;'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .column {
+        //border: 1px solid grey;
+        align-self: flex-start;
+        min-width: 300px;
+    }
+
+    .service-list {
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    #services .column {
+        max-width: 50%;
+    }
+    
+}
+
+@media only screen and (max-width: 750px) {
+    #services .column {
+        //border: 1px solid grey;
+        width: 100%;
+        max-width: unset;
+        min-width: unset;
+        //margin: 0 15px;
+    }
+    
+}
+
+
+
