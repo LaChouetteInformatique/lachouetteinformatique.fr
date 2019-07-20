@@ -29,7 +29,7 @@ npm install
 
 ## Configuration
 
-[*OPTIONAL*] If you want to use ngrok, you need to edit the last script named "ngrok" in package.json, and replace current directory with your ngrok installation path
+[*OPTIONAL*] If you want to use ngrok, you need to edit the last script named "[ngrok](https://github.com/LaChouetteInformatique/lachouetteinformatique.fr/blob/a7ced51e2f30c84383d8e4f3d87556991f6e057d/package.json#L54)" in package.json, and replace the current directory with your ngrok installation path
 
 Run
 ---
