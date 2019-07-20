@@ -1,6 +1,6 @@
-# lachouetteinformatique.fr website
+# [lachouetteinformatique.fr website](https://lachouetteinformatique.fr)
 
-This is the source code of my web site.
+This is the source code of my [web site](https://lachouetteinformatique.fr).
 
 ## License
 
