@@ -40,7 +40,7 @@ npm run dev
 ```
 * production:
 ```sh
-npm run dev
+npm run build
 ```
 * using ngrok: *(with prior configuration step)*
 ```sh
