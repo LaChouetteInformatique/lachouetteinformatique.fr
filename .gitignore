@@ -4,15 +4,12 @@
 node_modules/
 /node_modules/
 
-
-
 # Wordpress files and folder
 wp-admin/
 wp-content/languages/
 
 wp-includes/
 wp-config.php
-
 
 # Packages #
 ############
@@ -78,3 +75,9 @@ desktop.ini
 # .idea/
 # library/vendors/composer
 # assets/img/.DS_Store
+
+# Archives
+archives/
+
+# Assets
+assets/afdesign/

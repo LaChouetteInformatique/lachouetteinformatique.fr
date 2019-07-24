@@ -73,7 +73,7 @@ module.exports = (env, argv) => {
   const result = {
 
     externals: { // https://webpack.js.org/configuration/externals/
-      jquery: 'jQuery',
+      //jquery: 'jQuery',
       // clipboard: 'ClipboardJS',
     },
 
@@ -92,7 +92,7 @@ module.exports = (env, argv) => {
       // 2. extract css file to any directory and use publicPath for the css to load fonts and images correctly
       //publicPath: 'http://' + host + ':' + port + '/dist/'
       //publicPath: "/assets/",
-      // publicPath: "/",
+      //publicPath: "/",
     },
 
     watch: true,

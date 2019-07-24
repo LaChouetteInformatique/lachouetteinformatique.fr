@@ -8,6 +8,9 @@ module.exports = function(grunt) {
 				'dist/img/**',
 				//'dist/img/static/*',
 			],
+			fonts: [
+				'dist/fonts/**',
+			],
 			vendors: [
 				'dist/css/vendors-bundle.css',
 			]
@@ -34,6 +37,14 @@ module.exports = function(grunt) {
 				dest: 'dist/img/static/',
 				flatten: true,
 			},
+			fonts: {
+				expand: true,
+				src: 'fonts/**',
+				dest: 'dist/',
+				cwd:'assets/',
+				//flatten: true,
+				//filter: 'isFile',
+			}
 		},
 
 		// https://www.browsersync.io/docs/grunt
@@ -59,8 +70,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('img', ['clean:img', 'copy:static']);
+	grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
 	//grunt.registerTask('vendors', ['clean:vendors','cssmin:vendors']);
-	grunt.registerTask('build', ['img' /*, 'vendors'*/]);
+	grunt.registerTask('build', ['img','fonts'/*, 'vendors'*/]);
 	grunt.registerTask('default', ['build']);
 
 };

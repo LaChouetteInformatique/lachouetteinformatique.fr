@@ -1,13 +1,5 @@
 /**
  * scroll-top-button
- * 
- * @since   1.0.0
- * @package Norma Wordpress Theme
- * @subpackage WP scroll top button
- *    require : font-awesome,
- *    content :
- *      footer.php
- *      sass/components/_scroll-top-button.sass,
  */
 
 // Configuration

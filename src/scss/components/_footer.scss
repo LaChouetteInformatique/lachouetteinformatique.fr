@@ -45,8 +45,17 @@ footer {
         position: relative;
     }
 
+}
+
+.mentions-legales {
+
+    p {
+        margin: 1.4em 0;    
+    }
+    
+
     .rm {
-        margin-bottom: 0.2em;
+        margin-bottom: 0.8em;
     }
 
     .hosting {
@@ -59,7 +68,7 @@ footer {
 
     p {
         width: fit-content;
-        margin: 0.8em 0;
+        margin: 0.3em 0;
     }
 
     .others {
@@ -89,4 +98,37 @@ footer {
 .fa-logo {
     position: relative;
     margin-right: 0.15em;
+}
+
+
+
+@media only screen and (max-width: 800px) {
+    footer {
+
+        .licences {
+
+            p {
+                margin: 0.5em 0;
+            }
+        
+            .others {
+                margin-bottom: 0.1em;
+            }
+        
+            .sub {
+                margin-top: 0.1em;
+            }
+        }
+
+        .mentions-legales {
+
+            p {
+                margin: 0.5em 0;    
+            }
+            
+            .rm {
+                margin-bottom: -0.1em;
+            }
+        }
+    }
 }
