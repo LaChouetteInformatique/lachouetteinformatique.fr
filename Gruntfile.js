@@ -11,6 +11,9 @@ module.exports = function(grunt) {
 			fonts: [
 				'dist/fonts/**',
 			],
+			htaccess: [
+				'dist/.htaccess'
+			],
 			vendors: [
 				'dist/css/vendors-bundle.css',
 			]
@@ -44,6 +47,12 @@ module.exports = function(grunt) {
 				cwd:'assets/',
 				//flatten: true,
 				//filter: 'isFile',
+			},
+			htaccess: {
+				expand: true,
+				src: '.htaccess',
+				dest: 'dist/',
+				cwd:'assets/',
 			}
 		},
 
@@ -71,8 +80,9 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('img', ['clean:img', 'copy:static']);
 	grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
+	grunt.registerTask('security', ['clean:htaccess', 'copy:htaccess']);
 	//grunt.registerTask('vendors', ['clean:vendors','cssmin:vendors']);
-	grunt.registerTask('build', ['img','fonts'/*, 'vendors'*/]);
+	grunt.registerTask('build', ['img','fonts','security'/*, 'vendors'*/]);
 	grunt.registerTask('default', ['build']);
 
 };
