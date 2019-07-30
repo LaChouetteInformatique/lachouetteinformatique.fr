@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "lachouetteinformatique website",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LaChouetteInformatique/lachouetteinformatique.fr.git"
+  },
   "keywords": [
     "lachouetteinformatique"
   ],
