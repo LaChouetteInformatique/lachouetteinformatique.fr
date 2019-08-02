@@ -41,9 +41,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
 
+  console.log('\n', "--- Webpack ---", '\n',);
   console.log("mode: " + argv.mode); // mode is set in package.json scripts
   const devMode = argv.mode !== 'production';
-
 
   /**
    * CustomHtmlWebpackPlugin
@@ -95,7 +95,7 @@ module.exports = (env, argv) => {
       //publicPath: "/",
     },
 
-    watch: true,
+    watch: devMode,
     watchOptions: {
       //poll: 1000, // If watching does not work, try this out
       aggregateTimeout: 600,

@@ -1,12 +1,26 @@
-module.exports = function(grunt) {
+/**
+ * COMMAND LINE : --mode=?
+ * ----------------------
+ * grunt
+ * grunt --mode=robert
+ * 
+ * Not specifying mode will trigger 'production' mode
+ * Anything else than '--mode=production' will trigger 'development' mode
+ */
+
+module.exports = grunt => {
+
+	console.log('\n', "--- Grunt ---", '\n');
+	const devMode = ((grunt.option('mode') || 'production') !== 'production');
+	console.log('mode = ' + (devMode? 'development' : 'production'));
+
+	require('load-grunt-tasks')(grunt); // https://github.com/sindresorhus/load-grunt-tasks
 
 	grunt.initConfig({
 
-		// https://github.com/gruntjs/grunt-contrib-clean
-		clean: {
+		clean: {// https://github.com/gruntjs/grunt-contrib-clean
 			img: [
 				'dist/img/**',
-				//'dist/img/static/*',
 			],
 			fonts: [
 				'dist/fonts/**',
@@ -14,26 +28,9 @@ module.exports = function(grunt) {
 			htaccess: [
 				'dist/.htaccess'
 			],
-			vendors: [
-				'dist/css/vendors-bundle.css',
-			]
 		},
 
-		// https://github.com/jakubpawlowicz/clean-css
-		// https://github.com/gruntjs/grunt-contrib-cssmin
-		cssmin: {
-			options: {
-				format: 'keep-breaks',
-			},
-			vendors: {
-				files: {
-					['dist/css/vendors-bundle.css']: 'src/vendor/*.css',
-				}
-			}
-		},
-
-		// https://github.com/gruntjs/grunt-contrib-copy
-		copy : {
+		copy : {// https://github.com/gruntjs/grunt-contrib-copy
 			static: {
 				expand: true,
 				src: 'assets/img/static/*',
@@ -45,8 +42,6 @@ module.exports = function(grunt) {
 				src: 'fonts/**',
 				dest: 'dist/',
 				cwd:'assets/',
-				//flatten: true,
-				//filter: 'isFile',
 			},
 			htaccess: {
 				expand: true,
@@ -56,33 +51,24 @@ module.exports = function(grunt) {
 			}
 		},
 
-		// https://www.browsersync.io/docs/grunt
-		browserSync: {
-            dev: {
-                bsFiles: {
-                    src : [
-                        'dist/css/*.css',
-                        'dist/*.html'
-                    ]
-                },
-                options: {
-                    //watchTask: true,
-                    server: './dist'
-                }
-            }
-        }
+		browserSync: {// https://www.browsersync.io/docs/grunt
+            bsFiles: {
+				src : [
+					'dist/css/*.css',
+					'dist/*.html'
+				]
+			},
+			options: {
+				//watchTask: true,
+				server: './dist'
+			}
+		},
+		
 	});
-
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-browser-sync');
 
 	grunt.registerTask('img', ['clean:img', 'copy:static']);
 	grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
 	grunt.registerTask('security', ['clean:htaccess', 'copy:htaccess']);
-	//grunt.registerTask('vendors', ['clean:vendors','cssmin:vendors']);
-	grunt.registerTask('build', ['img','fonts','security'/*, 'vendors'*/]);
-	grunt.registerTask('default', ['build']);
 
+	grunt.registerTask('default', ['img','fonts','security']);
 };
