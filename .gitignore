@@ -66,6 +66,9 @@ desktop.ini
 # *.codekit
 # **.codekit-cache/*
 
+# Visual Studio Code
+**/*.code-workspace
+
 # Compiled Files and Build Dirs #
 ##########
 /README.html
