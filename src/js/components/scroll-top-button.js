@@ -3,26 +3,26 @@
  */
 
 // Configuration
-// Amount of pixels the user has to scroll down on the page for scrollTopButton to appear 
+// Amount of pixels the user has to scroll down on the page for scrollTopButton to appear
 let scrolltopValue = 500;
 
-let scrollTopButton = document.getElementById("scroll-top-button");
+let scrollTopButton = document.getElementById( 'scroll-top-button' );
 
 // Initialisation :
 // By default a scrollTopButton without animation is shown for users who disabled JS
 // That's why we need to initialise scrollTopButton visibility and opacity
-scrollTopButton.style.visibility = "hidden";
+scrollTopButton.style.visibility = 'hidden';
 scrollTopButton.style.opacity = 0;
 
 // When the user scrolls down some px from the top of the document, show the button
-window.onscroll = function() { 
-  if (document.body.scrollTop > scrolltopValue || document.documentElement.scrollTop > scrolltopValue) {
-    scrollTopButton.classList.add("visible");
-    // visibility: visible !important;
-    // opacity: 0.5 !important;
-  } else {
-    scrollTopButton.classList.remove("visible");
-  }
+window.onscroll = function() {
+	if ( document.body.scrollTop > scrolltopValue || document.documentElement.scrollTop > scrolltopValue ) {
+		scrollTopButton.classList.add( 'visible' );
+
+		// visibility: visible !important;
+		// opacity: 0.5 !important;
+	} else {
+		scrollTopButton.classList.remove( 'visible' );
+	}
 };
 
-    

@@ -1,2 +1,2 @@
-import normalize from '../vendor/normalize.css';
-import sanitize from '../vendor/sanitize.css';
+// import normalize from '../vendor/normalize.css';
+// import sanitize from '../vendor/sanitize.css';
