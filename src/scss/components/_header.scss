@@ -19,6 +19,8 @@ header {
         position: relative;
         overflow: visible;
 
+        display: table; // Microsoft Edge Fix for Flexbox bug -> correcting content alignement
+
         .title {
             // border: 2px solid red;
             margin: 0 auto;
@@ -152,6 +154,12 @@ header {
             transform: translateY(3px);
         }
     }
+}
+
+
+// Microsoft Edge Fix
+@supports (-ms-ime-align:auto) {
+    header { property:value; } 
 }
 
 .sticky { // scrolling down activate sticky menu if windows is big enough (javascript)
