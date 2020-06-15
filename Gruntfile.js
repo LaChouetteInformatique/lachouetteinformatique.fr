@@ -1,59 +1,61 @@
+/* eslint-disable no-console */
+/* eslint-disable lines-around-comment */
 /**
  * COMMAND LINE : --mode=?
  * ----------------------
  * grunt
  * grunt --mode=robert
- * 
+ *
  * Not specifying mode will trigger 'production' mode
  * Anything else than '--mode=production' will trigger 'development' mode
  */
 
 module.exports = grunt => {
 
-	console.log('\n', "--- Grunt ---", '\n');
-	const devMode = ((grunt.option('mode') || 'production') !== 'production');
-	console.log('mode = ' + (devMode? 'development' : 'production'));
+	console.log( '\n', '--- Grunt ---', '\n' );
+	const devMode = ( 'production' !== ( grunt.option( 'mode' ) || 'production' ) );
+	console.log( 'mode = ' + ( devMode ? 'development' : 'production' ) );
 
-	require('load-grunt-tasks')(grunt); // https://github.com/sindresorhus/load-grunt-tasks
+	require( 'load-grunt-tasks' )( grunt ); // https://github.com/sindresorhus/load-grunt-tasks
 
 	grunt.initConfig({
 
-		clean: {// https://github.com/gruntjs/grunt-contrib-clean
+		clean: { // https://github.com/gruntjs/grunt-contrib-clean
 			img: [
-				'dist/img/**',
+				'dist/img/**'
 			],
 			fonts: [
-				'dist/fonts/**',
+				'dist/fonts/**'
 			],
 			htaccess: [
 				'dist/.htaccess'
-			],
+			]
 		},
 
-		copy : {// https://github.com/gruntjs/grunt-contrib-copy
+		copy: { // https://github.com/gruntjs/grunt-contrib-copy
 			static: {
 				expand: true,
 				src: 'assets/img/static/*',
 				dest: 'dist/img/static/',
-				flatten: true,
+				flatten: true
 			},
 			fonts: {
 				expand: true,
 				src: 'fonts/**',
 				dest: 'dist/',
-				cwd:'assets/',
+				cwd: 'assets/'
 			},
 			htaccess: {
 				expand: true,
 				src: '.htaccess',
 				dest: 'dist/',
-				cwd:'assets/',
+				cwd: 'assets/'
 			}
 		},
 
-		browserSync: {// https://www.browsersync.io/docs/grunt
-            bsFiles: {
-				src : [
+		browserSync: { // https://www.browsersync.io/docs/grunt
+			bsFiles: {
+				src: [
 					'dist/css/*.css',
 					'dist/*.html'
 				]
@@ -62,13 +64,13 @@ module.exports = grunt => {
 				//watchTask: true,
 				server: './dist'
 			}
-		},
-		
+		}
+
 	});
 
-	grunt.registerTask('img', ['clean:img', 'copy:static']);
-	grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
-	grunt.registerTask('security', ['clean:htaccess', 'copy:htaccess']);
+	grunt.registerTask( 'img', [ 'clean:img', 'copy:static' ]);
+	grunt.registerTask( 'fonts', [ 'clean:fonts', 'copy:fonts' ]);
+	grunt.registerTask( 'security', [ 'clean:htaccess', 'copy:htaccess' ]);
 
-	grunt.registerTask('default', ['img','fonts','security']);
+	grunt.registerTask( 'default', [ 'img', 'fonts', 'security' ]);
 };

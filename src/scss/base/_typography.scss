@@ -41,8 +41,19 @@ a {
     margin-right: 0;
 }
 
-.svg-inline--margin {
-    margin-right: 0.3em;
+.svg-inline--fa-2 {
+    height: 1em;
+    position: relative;
+    top: 0.12em;
+    margin-right: 0;
+}
+
+.svg-inline--margin-25 {
+    margin-right: 0.25em;
+}
+
+.svg-inline--margin-10 {
+    margin-right: 0.10em;
 }
 
 button:focus {outline:0;}
