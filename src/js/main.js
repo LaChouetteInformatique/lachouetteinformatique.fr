@@ -32,13 +32,12 @@ document.addEventListener( 'DOMContentLoaded', function( /*event*/ ) {
 		} else {
 			return false;
 		}
-
-		//return true;
 	}
 
 	function stickyHeader() {
 
 		// Add the sticky class to the header when we reach its scroll position.
+		// Make sense only if the header is a little lower than the top of the document
 		if ( isHeaderSticky() && window.pageYOffset > stickyOffset ) {
 			header.classList.add( 'sticky' );
 
