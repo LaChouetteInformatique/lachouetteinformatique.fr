@@ -85,5 +85,8 @@ archives/
 # Assets
 assets/
 
+# Uploads
+Uploads/
+
 # Security
 **.htaccess

@@ -42,8 +42,7 @@ module.exports = grunt => {
 			fonts: {
 				expand: true,
 				src: 'fonts/**',
-				dest: 'dist/',
-				cwd: 'assets/'
+				dest: 'dist/'
 			},
 			htaccess: {
 				expand: true,
@@ -61,7 +60,7 @@ module.exports = grunt => {
 				]
 			},
 			options: {
-				//watchTask: true,
+				// watchTask: true,
 				server: './dist'
 			}
 		}

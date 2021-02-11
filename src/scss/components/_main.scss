@@ -14,6 +14,10 @@ main {
     section {
         border-top: dotted 1px #dddddd;
         padding: 1em 5%;
+
+        header {
+            width: 100%;
+        }
    
         &:first-of-type {
             border-top: none;
@@ -55,9 +59,17 @@ main {
         align-items: center;
     }
 
+    .panel {
+        display: none;
+    }
+
+    .js-visible {
+        display: block;
+    }
+
     .button-1 {
         border: none;
-        //border: 1px solid black;
+        border: 1px solid transparent;
         margin: 0 0.7em;
         padding: 0.5em 1em;
         border-radius: 0.4em;
@@ -72,23 +84,84 @@ main {
         white-space: nowrap;
         display: inline-block;
         line-height: 1.07em;
-        transition: 0.3s ease;
     }
 
-    .button-1:hover, .toggle-active {
-        background-color: lighten($color-1,25%);//rgba($color-1, 0.466);
-        transform: scale(1.05,1.05);
+    .button-1:hover, .button-1.active {
+        // background-color: lighten($color-1,25%);//rgba($color-1, 0.466);
+        // transform: scale(1.1,1.1);
+        box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+        color: lighten($color-1,10%);
+        background-color: white;
+        border: 1px solid currentColor;
+
     }
 
-    .toggle-content {
-        //border: 1px solid grey;
-        border-radius: 0.4em;
-        background-color: lighten($color-3,29%);
-        box-shadow: 0.25em 0.25em 0.5em rgba(black, 0.3),
-                    0 0 10px rgba(black, 0.1) inset;
+    button {
         position: relative;
+
+        .button-info {
+            // display: block;
+            position: absolute;
+            top: 130%;
+            left: 20%;
+
+            text-transform: none;
+            font-style: italic;
+            color: rgb(206, 83, 255);
+            pointer-events: none;
+        }
+
+        &.active .button-info {
+            display: none;
+        }
     }
-    
+
+    i {
+        .arobase:after {
+            content:'@';
+        }
+
+        .zero:after {
+            content:'0';
+        }
+
+        .one:after {
+            content:'1';
+        }
+
+        .two:after {
+            content:'2';
+        }
+
+        .three:after {
+            content:'3';
+        }
+
+        .four:after {
+            content:'4';
+        }
+
+        .five:after {
+            content:'5';
+        }
+
+        .six:after {
+            content:'6';
+        }
+
+        .seven:after {
+            content:'7';
+        }
+
+        .height:after {
+            content:'8';
+        }
+
+        .nine:after {
+            content:'9';
+        }
+    }
+
 }
 
 @media only screen and (max-width: 600px) {

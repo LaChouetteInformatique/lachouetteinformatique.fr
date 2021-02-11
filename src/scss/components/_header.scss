@@ -1,6 +1,6 @@
 
 
-header {
+body>header {
     //border: 2px solid red;
     background-color: $nav-bg-color;
     word-wrap: break-word;
@@ -159,7 +159,7 @@ header {
 
 // Microsoft Edge Fix
 @supports (-ms-ime-align:auto) {
-    header { property:value; } 
+    body>header { property:value; } 
 }
 
 .sticky { // scrolling down activate sticky menu if windows is big enough (javascript)
@@ -171,7 +171,7 @@ header {
 
 @media only screen and (max-width: 650px) { // if screen width less than usual phone screen + safety magic number (414px + 136px)
 
-    header { // mobile-menu
+    body>header { // mobile-menu
 
         .banner {
             margin: 0;
@@ -215,7 +215,7 @@ header {
 }
 
 @media only screen and (max-width: 350px) { // if screen width <= small phone
-    header .banner .title {
+    body>header .banner .title {
                 font-size: 15px;
             }
 }
