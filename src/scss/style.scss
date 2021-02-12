@@ -8,8 +8,18 @@
 @import 'base/base';
 
 /*------------------------------------*
+ *   Utils
+ *------------------------------------*/
+@import 'utils/js';
+@import 'utils/obfuscate';
+@import 'utils/mixin';
+@import 'utils/utils';
+@import 'utils/prefers-reduced-motion';
+
+/*------------------------------------*
  *   Components
  *------------------------------------*/
 @import 'components/header';
 @import 'components/main';
 @import 'components/footer';
+@import 'components/scroll-top-button';

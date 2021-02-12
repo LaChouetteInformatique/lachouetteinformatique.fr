@@ -31,7 +31,7 @@ body>header {
     
             font-family: 'Courgette', cursive, sans-serif;
             // font-size: 48px;
-            font-size: calc(32px + 1vw);
+            font-size: $tittle-font-size-l;
             font-weight: 400;
         }
         
@@ -169,7 +169,7 @@ body>header {
     //z-index: 10; // fixed header goes over the rest
 }
 
-@media only screen and (max-width: 650px) { // if screen width less than usual phone screen + safety magic number (414px + 136px)
+@media only screen and (max-width: 650px) {
 
     body>header { // mobile-menu
 
@@ -181,7 +181,7 @@ body>header {
                   
             .title {
                 margin: 10px 0;
-                font-size: 20px;
+                font-size: $tittle-font-size-m;
                 grid-column-start: 2;
             }
     
@@ -200,7 +200,7 @@ body>header {
                 // height: 100px;
                 // width: 100px;
                 left: 0;
-                top: 0px;
+                top: 5px;
             }
         }
 
@@ -214,8 +214,21 @@ body>header {
     }
 }
 
-@media only screen and (max-width: 350px) { // if screen width <= small phone
-    body>header .banner .title {
-                font-size: 15px;
-            }
+@media only screen and (max-width: 420px) {
+    body>header .banner {
+        .title {
+                font-size: $tittle-font-size-s;
+        }
+    }
+}
+
+@media only screen and (max-width: 340px) {
+    body>header .banner {
+        .title {
+                font-size: $tittle-font-size-xs;
+        }
+        .logo-mobile {
+            top: 0px;
+        }
+    }
 }

@@ -69,13 +69,23 @@
     
     ul {
         
-        font-size: 0.9em;
+        font-size: 0.95em;
 
         &.level-1 {
             list-style:none;
+            
+            ul {
+                padding-left: 10px;
+
+                li {
+                    margin: 5px 0;
+                }
+            }
 
             &>li {
                 margin-bottom: 8px;
+                // display: flex;
+                // align-items: center;
             }
 
             .accordion {
@@ -84,6 +94,11 @@
                 }
                 &.active:before {
                     content:"Fermer";
+                }
+                box-shadow: 0.4em 0.1em 0.4em rgba(0, 0, 0, 0.3);
+
+                &:hover, &.active {
+                    box-shadow: 0.2em 0.1em 0.2em rgba(0, 0, 0, 0.3);
                 }
             }
         }
@@ -130,7 +145,6 @@
     .service-list {
         padding: 0 10px;
     }
-
 }
 
 

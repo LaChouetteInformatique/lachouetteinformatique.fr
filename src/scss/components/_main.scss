@@ -59,14 +59,6 @@ main {
         align-items: center;
     }
 
-    .panel {
-        display: none;
-    }
-
-    .js-visible {
-        display: block;
-    }
-
     .button-1 {
         border: none;
         border: 1px solid transparent;
@@ -84,16 +76,28 @@ main {
         white-space: nowrap;
         display: inline-block;
         line-height: 1.07em;
-    }
 
-    .button-1:hover, .button-1.active {
-        // background-color: lighten($color-1,25%);//rgba($color-1, 0.466);
-        // transform: scale(1.1,1.1);
-        box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
-        color: lighten($color-1,10%);
-        background-color: white;
-        border: 1px solid currentColor;
+        &:hover, &.active {
+            // background-color: lighten($color-1,25%);//rgba($color-1, 0.466);
+            // transform: scale(1.1,1.1);
+            box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
+            color: lighten($color-1,10%);
+            background-color: white;
+            border: 1px solid currentColor;
+        }
 
+        &-rev {
+            @extend .button-1;
+            color: lighten($color-1,10%);
+            background-color: white;
+            border: 1px solid currentColor;
+    
+            &:hover, &.active {
+                background-color: lighten($color-1,10%); // rgba($color-1, 0.7);
+                color: white;
+                border: 1px solid transparent;
+            }
+        }
     }
 
     button {
@@ -113,52 +117,6 @@ main {
 
         &.active .button-info {
             display: none;
-        }
-    }
-
-    i {
-        .arobase:after {
-            content:'@';
-        }
-
-        .zero:after {
-            content:'0';
-        }
-
-        .one:after {
-            content:'1';
-        }
-
-        .two:after {
-            content:'2';
-        }
-
-        .three:after {
-            content:'3';
-        }
-
-        .four:after {
-            content:'4';
-        }
-
-        .five:after {
-            content:'5';
-        }
-
-        .six:after {
-            content:'6';
-        }
-
-        .seven:after {
-            content:'7';
-        }
-
-        .height:after {
-            content:'8';
-        }
-
-        .nine:after {
-            content:'9';
         }
     }
 

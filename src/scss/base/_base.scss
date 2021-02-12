@@ -10,7 +10,7 @@ body {
     background-color: $body-bg-color;
     color: $color-1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: $font-size;
+    font-size: $font-size-l;
 
     // Push footer to page's bottom Step 1/2
     display: flex;
@@ -33,6 +33,6 @@ footer {
 
 @media only screen and (max-width: 650px) {
     body {
-        font-size: 16px;
+        font-size: $font-size-s;
     }
 }

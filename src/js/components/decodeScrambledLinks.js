@@ -5,12 +5,12 @@ let decodeScrambledLinks = (function() {
     return {
         init : () => {
             try {
-                let tel = "tel:+33663349772";
-                let mail = "contact@truc.fr";
-                let encodedTel = scramble(tel);
-                let encodedEmail = scramble(mail);
-                console.log(encodedEmail, scramble(encodedEmail));
-                console.log(encodedTel, scramble(encodedTel));
+                // let tel = "tel:+33612345678";
+                // let mail = "contact@truc.fr";
+                // let encodedTel = scramble(tel);
+                // let encodedEmail = scramble(mail);
+                // console.log(encodedEmail, scramble(encodedEmail));
+                // console.log(encodedTel, scramble(encodedTel));
 
                 let scrambledLinks = document.querySelectorAll('a.scrambled');
 

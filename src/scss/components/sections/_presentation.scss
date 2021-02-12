@@ -43,12 +43,18 @@
     }
 
     .presentation-text {
-        //border: 1px solid blue;
+        // border: 1px solid blue;
         width: min-content;
         min-width: 65%;
         flex-grow: 1;
-        margin-left: 2vw;
+        margin-left: 1.5vw;
         text-align: justify;
+
+        ul {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        
 
         h3 {
             text-align: center;
@@ -72,7 +78,7 @@
             margin: 0.5em 0;
         }
 
-        .presentation-card p{
+        .presentation-card p {
             font-size: 1.1em;
         }
     }
