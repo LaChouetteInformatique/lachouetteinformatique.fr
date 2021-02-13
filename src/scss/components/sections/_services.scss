@@ -105,9 +105,10 @@
 
         &.panel {
             list-style-type: disc;
+            list-style-position: inside;
             margin-top : 10px;
             margin-bottom: 15px;
-            padding-left: 30px;
+            padding-left: 20px;
         }
     }
 

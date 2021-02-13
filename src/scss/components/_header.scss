@@ -126,7 +126,7 @@ body>header {
         }
     }
 
-    #phone-number {
+    .phone-number-area {
         //border: 1px solid green;
         position: absolute;
         width: 220px;
@@ -140,19 +140,22 @@ body>header {
             //fill: $color-1;
         }
 
-        #svg-phonenumber-text {
-            font-family: /*'Merriweather Sans',*/ sans-serif;
-            font-size: 30px;
-            font-weight: 500;
-        }
-
-        #svg-phonenumber-text, #svg-phonenumber-ellipse {
+        #svg-phonenumber-ellipse {
             fill:#fff;
         }
 
-        #svg-phonenumber-text, #svg-phonenumber-logo {
+        #svg-phonenumber-logo {
             transform: translateY(3px);
         }
+    }
+
+    .phone-number {
+        font-family: /*'Merriweather Sans',*/ sans-serif;
+        font-weight: 500;
+        color: white;
+        position: absolute;
+        left: 44px;
+        padding-top: 5px;
     }
 }
 
@@ -208,8 +211,12 @@ body>header {
             display: none;
         }
 
-        #phone-number {
+        .phone-number-area {
             left: 70px;
+        }
+
+        .phone-number {
+            left: 129px;
         }
     }
 }

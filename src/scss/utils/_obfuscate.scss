@@ -1,45 +1,50 @@
 i {
-    .arobase:after {
+
+    &.arobase:after {
         content:'@';
     }
 
-    .zero:after {
+    &.dot:after {
+        content:'.';
+    }
+
+    &.zero:after {
         content:'0';
     }
 
-    .one:after {
+    &.one:after {
         content:'1';
     }
 
-    .two:after {
+    &.two:after {
         content:'2';
     }
 
-    .three:after {
+    &.three:after {
         content:'3';
     }
 
-    .four:after {
+    &.four:after {
         content:'4';
     }
 
-    .five:after {
+    &.five:after {
         content:'5';
     }
 
-    .six:after {
+    &.six:after {
         content:'6';
     }
 
-    .seven:after {
+    &.seven:after {
         content:'7';
     }
 
-    .height:after {
+    &.height:after {
         content:'8';
     }
 
-    .nine:after {
+    &.nine:after {
         content:'9';
     }
 }
