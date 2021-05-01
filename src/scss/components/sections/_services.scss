@@ -5,6 +5,27 @@
         // max-width: $max-width-wrapper;
         margin: 0.8em auto;
         text-align: center;
+        
+    }
+
+    button {
+        position: relative;
+
+        .button-info {
+            // display: block;
+            position: absolute;
+            top: 130%;
+            left: 20%;
+    
+            text-transform: none;
+            font-style: italic;
+            color: rgb(206, 83, 255);
+            pointer-events: none;
+        }
+    
+        &.active .button-info {
+            display: none;
+        }
     }
 
     #service-panel {
@@ -109,6 +130,7 @@
             margin-top : 10px;
             margin-bottom: 15px;
             padding-left: 20px;
+            overflow: hidden;
         }
     }
 

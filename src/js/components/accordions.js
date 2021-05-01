@@ -1,7 +1,7 @@
 /**-----------------------------------------------
  * ACCORDIONS
- *  Set mouse click events on accordions to toggle
- *  visibility of their respective panel
+ *  Set mouse click events on elements to toggle
+ *  visibility of their respective panel with a slideUp / slideDown effect
  * 
  * HTML to make accordions :
  * -------------------------
@@ -40,16 +40,15 @@
     </any>
  * ---------------------------------------------*/
 
-import {slideUp, slideDown} from './slideEffect';
+import {slideUp, slideToggle} from './slideEffect';
 
 let accordion = (function() {
 
     // Find accordion's panel in the DOM and return it, or null if the panel could not be found
     let getPanel = (accordion) => {
         // Option 1: panel is given as accordion's data-attribute
-        // let panelId = accordion.dataset.panelId;
         let panelId = accordion.getAttribute("data-panel-id");
-        let panel;
+        let panel = null;
         
         if (panelId) {
             panel = document.getElementById(panelId);
@@ -72,34 +71,10 @@ let accordion = (function() {
         }
         // Errors
         if (!panel) {
-            console.error("Could not  found Panel of", accordion);
+            console.error("Could not found Panel of", accordion);
             return null;
         }
         return panel;
-    }
-
-    // Toogle panel on clic event
-    let tooglePanel = (e, panel, accordion) => {
-        if(accordion.classList.contains("active")){
-            closePanel(e, panel, accordion);
-        }
-        else {
-            openPanel(e, panel, accordion);
-        }
-    };
-
-    // Open panel on clic event
-    let openPanel = function(e, panel, accordion) {
-        accordion.classList.add("active");
-        slideDown(panel);
-    };
-
-    // Close panel on clic event
-    let closePanel = (e, panel, accordion) => {
-        slideUp(panel);
-        panel.addEventListener("slide-up-end", function(e){
-            accordion.classList.remove("active");
-        }, { once : true });
     }
     
     return {
@@ -112,18 +87,18 @@ let accordion = (function() {
 
                     let panel = getPanel(accordions[i]);
         
-                    accordions[i].addEventListener("click", function(e){
-                        tooglePanel(e, panel, accordions[i]);
+                    accordions[i].addEventListener("click", function(/*e*/){
+                        slideToggle(panel, null, accordions[i]);
                     });
         
                     let closeButton = panel.querySelector(".close-button");
                     if (closeButton) {
-                        closeButton.addEventListener("click", function(e){
-                            closePanel(e, panel, accordions[i]);
+                        closeButton.addEventListener("click", function(/*e*/){
+                            slideUp(panel, null, accordions[i]);
                         });
                     }
                 }
-        
+
             } catch (error) {
                 console.error(error);
             }

@@ -1,5 +1,9 @@
 import {scramble} from '../vendor/email-scramble';
 
+/**
+ * decode scrambled link on the page
+ * Application specific
+ */
 let decodeScrambledLinks = (function() {
 
     return {

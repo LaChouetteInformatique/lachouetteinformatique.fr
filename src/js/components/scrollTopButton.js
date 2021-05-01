@@ -1,7 +1,5 @@
 /**
- * @package    ScrollTopButton
- * @version    1.2
- * @description hide/show the scroll-top-button depending of the window scroll position
+ * hide/show the scroll-top-button depending of the window scroll position
  *
  */
 

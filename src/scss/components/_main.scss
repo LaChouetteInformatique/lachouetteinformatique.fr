@@ -100,26 +100,6 @@ main {
         }
     }
 
-    button {
-        position: relative;
-
-        .button-info {
-            // display: block;
-            position: absolute;
-            top: 130%;
-            left: 20%;
-
-            text-transform: none;
-            font-style: italic;
-            color: rgb(206, 83, 255);
-            pointer-events: none;
-        }
-
-        &.active .button-info {
-            display: none;
-        }
-    }
-
 }
 
 @media only screen and (max-width: 600px) {
