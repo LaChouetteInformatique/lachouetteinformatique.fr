@@ -22,9 +22,15 @@
             color: rgb(206, 83, 255);
             pointer-events: none;
         }
-    
-        &.active .button-info {
-            display: none;
+    }
+
+    .button-1 {
+        &[data-panel-state="open"],
+        &[data-panel-state="sliddingDown"],
+        &[data-panel-state="sliddingUp"] {
+            .button-info {
+                display: none;
+            }
         }
     }
 
@@ -113,12 +119,12 @@
                 &:before {
                     content:"Détails";
                 }
-                &.active:before {
+                &[data-command="close"]:before {
                     content:"Fermer";
                 }
                 box-shadow: 0.4em 0.1em 0.4em rgba(0, 0, 0, 0.3);
 
-                &:hover, &.active {
+                &:hover, &[data-command="close"] {
                     box-shadow: 0.2em 0.1em 0.2em rgba(0, 0, 0, 0.3);
                 }
             }

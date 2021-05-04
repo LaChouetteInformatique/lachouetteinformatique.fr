@@ -8,21 +8,11 @@
 import {getTransitionEndEventName} from "./getEventPropertyName";
 
 let transitionEnd = getTransitionEndEventName();
-
 let slideUpTransitionEndListener = null;
 let slideDownTransitionEndListener = null;
 
-let transitioning = false;
-
-const HIDDEN = 0;
-const DEFAULT = 1;
-const SLIDDINGUP = 2;
-const SLIDDINGDOWN = 3;
-let state = DEFAULT;
-
-
 /**
- * Hide an element with a slide up animation. Using CSS transition, animate the height, padding and margin of an Element from their current value to 0. Then hide the element and restore it's original height, padding and margin.
+ * Hide an element with a slide up animation. Using CSS transition, animate the height, padding and margin of an Element from their current value to 0. Then hide the element and restore it's original height, padding and margin. If a button is given, it will trigger it's data-command and data-panel-state attributes.
  *
  * @async
  * @param {HTMLElement} element - element to animate
@@ -32,36 +22,20 @@ let state = DEFAULT;
  */
 const slideUp = async (element, duration = 300, buttonToToogle = null) => {
   return new Promise(function (resolve/*, reject*/) {
-
-
     try {
-      if (typeof(duration) != Number) duration = 300;
-
-      state = SLIDDINGUP;
-      // element.setAttribute('data-state', 'sliddingUp');
-
-      if( buttonToToogle ) {
-        buttonToToogle.classList.toggle("active");
-      }
+      if (duration == null) duration = 300;
+      if( buttonToToogle ) buttonToToogle.setAttribute('data-command', 'open');
 
       let customResolve = () => {
-        // element.classList.remove("js-visible");
         element.style.display = 'none';
-        transitioning = false;
-        state = HIDDEN;
-        if( buttonToToogle ) { // Allow to show stuff with css on the button
-          buttonToToogle.setAttribute('data-panel-state', 'hidden');
-        }
-        element.dispatchEvent(new Event('slide-up-end'));
+        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'closed');
+        element.setAttribute('data-state', 'closed');
+        // element.dispatchEvent(new Event('slide-up-end'));
         resolve();
       }
 
       // If animations are enabled on the system
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && duration != 0) {
-
-        if( buttonToToogle ) { // Allow to show stuff with css on the button
-          buttonToToogle.setAttribute('data-panel-state', 'sliddingUp');
-        }
 
         slideUpTransitionEndListener = (/*e*/) => {
           element.style.removeProperty('height');
@@ -72,17 +46,18 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
           element.style.removeProperty('overflow');
           element.style.removeProperty('transition-duration');
           element.style.removeProperty('transition-property');
-          element.classList.remove("js-transitioning");
           customResolve();
         }
 
-        if (transitioning) {
+        // If a slideDown animation is in progress
+        if (element.getAttribute('data-state') === "sliddingDown") {
           element.removeEventListener(transitionEnd, slideDownTransitionEndListener, { once : true });
         }
 
         // To enable CSS transition on element with no height specified (height: auto), we must set height.
-        transitioning = element.offsetHeight;
-        element.style.height = transitioning + 'px';
+        let height = element.offsetHeight;
+        if (element.getAttribute('data-state') != "sliddingDown") element.setAttribute('data-full-height', height);
+        element.style.height = height + 'px';
 
         element.style.transitionProperty = 'height, margin, padding';
         element.style.transitionDuration = duration + 'ms';
@@ -97,9 +72,10 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
         element.style.paddingBottom = 0;
         element.style.marginTop = 0;
         element.style.marginBottom = 0;
-        element.classList.add("js-transitioning");
-        
-        element.dispatchEvent(new Event('slide-up-start'));
+
+        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'sliddingUp');
+        element.setAttribute('data-state', 'sliddingUp');
+        // element.dispatchEvent(new Event('slide-up-start'));
         element.addEventListener(transitionEnd, slideUpTransitionEndListener, { once : true });
 
       } else { // No animation
@@ -123,45 +99,31 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
  */
 const slideDown = async (element, duration = 300, buttonToToogle = null) => {
   return new Promise(function (resolve, reject) {
-
     try {
-      if (typeof(duration) != Number) duration = 300;
-
-      state = SLIDDINGDOWN;
-
-      if( buttonToToogle ) {
-        buttonToToogle.classList.toggle("active");
-      }
+      if (duration == null) duration = 300;
+      if( buttonToToogle ) buttonToToogle.setAttribute('data-command', 'close');
 
       let customResolve = () => {
-        transitioning = false;
-        state = DEFAULT;
-        if( buttonToToogle ) { // for css
-          buttonToToogle.removeAttribute('data-panel-state');
-        }
-        element.dispatchEvent(new Event('slide-down-end'));
+        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'open');
+        element.setAttribute('data-state', 'open');
+        // element.dispatchEvent(new Event('slide-down-end'));
         resolve();
       }
 
       // If animations are enabled on the system
       if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && duration != 0) {
 
-        if( buttonToToogle ) { // Allow to show stuff with css on the button
-          buttonToToogle.setAttribute('data-panel-state', 'sliddingDown');
-        }
-
         slideDownTransitionEndListener = (/*e*/) => {
           element.style.removeProperty('height');
           element.style.removeProperty('transition-duration');
           element.style.removeProperty('transition-property');
           element.style.removeProperty('overflow');
-          element.classList.remove("js-transitioning");
           customResolve();
         }
 
         // If a slideUp animation is in progress
-        if (transitioning) {
-          // Remove SlideUp End event listener
+        if (element.getAttribute('data-state') === "sliddingUp") {
+          // Cancel it
           element.removeEventListener(transitionEnd, slideUpTransitionEndListener, { once : true });
 
           element.style.removeProperty('padding-top');
@@ -170,16 +132,13 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
           element.style.removeProperty('margin-bottom');
 
           // To enable CSS transition on element with no height specified (height: auto), we must set height.
-          element.style.height = transitioning + 'px';
+          // Set value B -> trigger the CSS transition
+          element.style.height = element.getAttribute('data-full-height', element.offsetHeight) + 'px';
         }
         // No slideUp animation in progress
         else {
-          // Show the element
-          // element.classList.add("js-visible");
           element.style.removeProperty('display');
-          let display = window.getComputedStyle(element).display;
-          if (display === 'none') display = 'block';
-          element.style.display = display;
+          if (window.getComputedStyle(element).display === 'none') element.style.display = 'block';
 
           let height = element.offsetHeight; // redraw
 
@@ -197,20 +156,21 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
           element.style.transitionProperty = "height, margin, padding";
           element.style.transitionDuration = duration + 'ms';
 
-          transitioning = true;
-          element.dispatchEvent(new Event('slide-down-start'));
-
           // Set value B -> trigger the CSS transition
           element.style.height = height + 'px';
           element.style.removeProperty('padding-top');
           element.style.removeProperty('padding-bottom');
           element.style.removeProperty('margin-top');
           element.style.removeProperty('margin-bottom');
-          element.classList.add("js-transitioning");
         }
+        // element.dispatchEvent(new Event('slide-down-start'));
+        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'sliddingDown');
+        element.setAttribute('data-state', 'sliddingDown');
         element.addEventListener(transitionEnd, slideDownTransitionEndListener, { once : true });
       }
       else { // No animation
+        element.style.removeProperty('display');
+        if (window.getComputedStyle(element).display === 'none') element.style.display = 'block';
         customResolve();
       }
     }
@@ -234,12 +194,12 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
 const slideToggle = async (element, duration = 300, buttonToToogle = null) => {
 
   try {
-    if (typeof(duration) != Number) duration = 300;
+    if (typeof(duration) != typeof(10)) duration = 300;
 
-    if (window.getComputedStyle(element).display === 'none' || state === HIDDEN || state === SLIDDINGUP ){
-      slideDown(element, duration, buttonToToogle).catch((error) => {
-        throw(error);
-      });
+    let state = element.getAttribute('data-state');
+
+    if (window.getComputedStyle(element).display === 'none' || state === 'closed' || state === 'sliddingUp' ){
+      slideDown(element, duration, buttonToToogle);
     }
     else {
       slideUp(element, duration, buttonToToogle);
