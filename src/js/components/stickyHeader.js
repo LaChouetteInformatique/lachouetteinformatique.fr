@@ -5,12 +5,14 @@
 
 import {getElementAbsPos} from './getElementAbsPos';
 
+const screenHeightBreakPoint = 549; // minimum screen height for the header to be sticky
+
 let stickyHeader = (function() {
 
     let header, headerClone, stickyOffset, main, headerIsSticky;
 
     let stickyHeader = () => {
-        refreshHeaderIsSticky();
+        headerIsSticky = (screenHeightBreakPoint < window.innerHeight);
         // Add the sticky class to the header when we reach its scroll position
         if ( headerIsSticky && window.pageYOffset > stickyOffset ) {
             header.classList.add( 'sticky' );
@@ -19,10 +21,6 @@ let stickyHeader = (function() {
             header.classList.remove( 'sticky' );
             main.style.paddingTop = '0';
         }
-    }
-
-    let refreshHeaderIsSticky = () => {
-        headerIsSticky = (600 < window.innerHeight);
     }
 
     /**-----------------------------------------------
@@ -117,7 +115,6 @@ let stickyHeader = (function() {
             header = document.querySelector( 'body>header'/*+'>.nav-menu'*/ );
             stickyOffset = header.offsetTop;
             main = document.querySelector( 'body>main' );
-            refreshHeaderIsSticky();
             stickyHeader();
 
             window.onscroll = function() {

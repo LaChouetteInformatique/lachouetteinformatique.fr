@@ -19,7 +19,7 @@
     
             text-transform: none;
             font-style: italic;
-            color: rgb(206, 83, 255);
+            color: $color-7;
             pointer-events: none;
         }
     }
@@ -173,6 +173,21 @@
 
     .service-list {
         padding: 0 10px;
+    }
+
+    .has-info {
+        position: relative;
+    
+        &>span {
+            position: absolute;
+            top: 110%;
+            margin-left: -80px;
+            font-size: 0.7em;
+            font-family: Tahoma;
+            font-weight: bold;
+            font-style: italic;
+            color: $color-7;
+        }
     }
 }
 

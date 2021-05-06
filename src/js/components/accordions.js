@@ -88,13 +88,13 @@ let accordion = (function() {
                     let panel = getPanel(accordions[i]);
         
                     accordions[i].addEventListener("click", function(/*e*/){
-                        slideToggle(panel, 600, accordions[i]);
+                        slideToggle(panel, 300, accordions[i]);
                     });
         
                     let closeButton = panel.querySelector(".close-button");
                     if (closeButton) {
                         closeButton.addEventListener("click", function(/*e*/){
-                            slideUp(panel, 600, accordions[i]);
+                            slideUp(panel, 300, accordions[i]);
                         });
                     }
                 }
