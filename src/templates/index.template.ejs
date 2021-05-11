@@ -22,15 +22,12 @@
     <meta name="LANGUAGE" content="FR">
 
     <link rel="shortcut icon" href="img/static/portrait64x64.png" type="image/x-icon">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet"> -->
+
     <!-- <link rel="stylesheet" href="css/vendors-bundle.css"> -->
 
     <!-- <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"> -->
-
-    <!-- <script
-      src="https://code.jquery.com/jquery-3.4.0.min.js"
-      integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-      crossorigin="anonymous">
-    </script> -->
 
     <script type="application/ld+json">
       {
@@ -157,7 +154,7 @@
             <h1>Services</h1>
 
             <p class="service-type"><a class="button-1" href="#zone-intervention"> Interventions à domicile / sur site</a> ou 
-              <button class="button-1 accordion" data-panel-id="service-panel">prise de contrôle à distance<span class="button-info">
+              <button class="button-1" data-lci-button-type="toggle" data-lci-panel-selector="#service-panel">prise de contrôle à distance<span class="button-info">
                 <i aria-hidden="true" title="Curved Arrow"><svg focusable="false" aria-hidden="true" height="0.9em" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                   <rect id="Curving-Arrow" x="0" y="0" width="22" height="22" style="fill:white;fill-opacity:0;"/>
                   <g fill="currentColor">
@@ -167,8 +164,8 @@
                 </g>
                 </svg></i>Cliquez pour plus de détails</span></button></p>
 
-            <div id="service-panel" class="panel">
-              <button class="close-button"></button>
+            <div id="service-panel" class="panel-1 js-sliding-panel">
+              <button class="close-button" data-lci-button-type="close" data-lci-panel-location="parent"></button>
               <p><strong>La prise de contrôle à distance</strong> est une méthode qui me permet 
                 d'intervenir sur votre ordinateur depuis mon lieu de travail, tout en vous laissant voir 
                 en temps réel sur votre écran ce que je fais, comme si j'étais à vos côtés.</p>
@@ -177,7 +174,7 @@
             </div>
 
             <noscript>
-              <div class="service-panel noscript">
+              <div class="panel-1 noscript">
                   <p><strong>La prise de contrôle à distance</strong> est une méthode qui me permet 
                     d'intervenir sur votre ordinateur depuis mon lieu de travail, tout en vous laissant voir 
                     en temps réel sur votre écran ce que je fais, comme si j'étais à vos côtés.</p>
@@ -229,8 +226,8 @@
                 <h3>Formations / Cours particuliers sur mesure</h3>
     
                 <ul class="level-1">
-                  <li class="true">Bureautique<button class="accordion button-1-rev"></button>
-                    <ul class="panel">
+                  <li class="true">Bureautique<button class="button-2" data-lci-button-type="toggle" data-lci-panel-location="sibling"></button>
+                    <ul class="js-sliding-panel">
                       <li>Initiation à l'informatique sur Microsoft Windows, Linux et MacOs.</li>
                       <li>Internet : Configuration et utilisation des principaux navigateurs (firefox, Edge, Chrome, Safari...)</li>
                       <li>E-mails : Les clients de messagerie Mozilla Thunderbird et Microsoft Outlook, la gestion des indésirable, la création de signatures mail, le transfert automatique des e-mails d'une boite à une autre...</li>
@@ -238,8 +235,8 @@
                       <!-- <li>La suite de logiciels Libre Office :  Writer, Calc, Impress, Draw, Base, Math - Niveau débutant / opérationnel</li> -->
                     </ul>
                   </li>
-                  <li class="true">Sécurité informatique<button class="accordion button-1-rev"></button>
-                    <ul class="panel">
+                  <li class="true">Sécurité informatique<button class="button-2" data-lci-button-type="toggle" data-lci-panel-location="sibling"></button>
+                    <ul class="js-sliding-panel">
                       <li><span>Virus et Malwares</span> : Les principales sources d'infection et comment les éviter</li>
                       <li>E-mails : Les principaux dangers que l'on peut rencontrer dans un e-mail et comment protéger sa boite électronique des indésirables. L'hameçonnage : comment le reconnaitre pour s'en prémunir</li>
                       <li>Sauvegarder et synchroniser ses données pour ne pas tout perdre le jour de la panne</li>
@@ -248,29 +245,13 @@
                       <li>Les risques liés aux objets connectés</li>
                     </ul>
                   </li>
-                  <li class="true">Gestion de sites web<button class="accordion button-1-rev"></button>
-                    <ul class="panel">
+                  <li class="true">Gestion de sites web<button class="button-2" data-lci-button-type="toggle" data-lci-panel-location="sibling"></button>
+                    <ul class="js-sliding-panel">
                       <li>Gestion d'un site Wordpress, Joomla! et d'une boutique en ligne</li>
                       <li>Gestion d'un système de newsletters</li>
                       <li>Installation, configuration et gestion d'un système de sauvegardes automatiques</li>
                     </ul>
                   </li>
-
-                  <!-- <li class="true">Dépannage informatique : les prérequis pour se lancer dans le métier</li> -->
-                  <!-- <li class="true">Création et gestion de site web<button class="accordion button-1-rev"></button>
-                    <ul class="panel">
-                      <li>Site vitrine</li>
-                      <li>L'hameçonnage : comment le reconnaitre et s'en prémunir</li>
-                      <li>Les principaux dangers que l'on peut rencontrer dans un mail et comment protéger sa boite mail des indésirables</li>
-                    </ul>
-                  </li> -->
-
-                  <!-- <li class="true">Initiation à l'hygiène électromagnétique<button class="accordion button-1-rev"></button>
-                    <ul class="panel">
-                      <li>Détections et mitigation des risques : se protéger des ondes chez soi et au travail</li>
-                      <li>Gérer son hyper-électrosensibilité tout en restant connecté</li>
-                    </ul>
-                  </li> -->
                 </ul>
               </div>
           </div>
@@ -284,9 +265,6 @@
                 <li class="false">Réparation de téléphones portables et tablettes (remplacement écrans, coques, etc.)</li>
                 <li class="false">Installation de jeux et logiciels piratés</li>
                 <li class="false">Intrusion dans une machine ou du matériel qui ne vous appartient pas</li>
-                <!-- <li class="false">Escroqueries à l'assurance et création de faux documents / attestations</li> -->
-                <!-- <li class="false">Création de faux commentaires / avis sur internet</li> -->
-                <!-- <li class="false">Création et gestion de sites web de jeux d'argent ou à caractère pornographique</li> -->
               </ul>
             </div>
 
@@ -315,13 +293,13 @@
               </div>
 
               <div class="content-box">
-                  <p><strong>Tarif horaire : 60€</strong></p>
+                  <p><strong>Tarif horaire : 60€</strong><br>ou <strong>40€ </strong>via CESU*<br><a class="button-1" role="button" href="#details-tarifs" data-lci-panel-selector="#tarifs .js-sliding-panel" data-lci-button-type="open">plus de détails</a><br><span>*Réservé aux particuliers</span></p>
                   <p><strong>≥ 30 min</strong><br><em>Le temps minimum facturé est de 30 minutes.</em></p>
                   <p><strong>Frais de déplacement</strong><br><em>Aucun frais de déplacement dans 
                     ma </em><br><a class="button-1" href="#zone-intervention">zone d'intervention</a><em><br>
                       En dehors de cette zone, la durée du déplacement est facturée au tarif horaire.</em></p>
                   
-                  <p><strong>Moyens de paiement</strong><br><em>Chèque ou espèces.</em></p>
+                  <p><strong>Moyens de paiement</strong><br><em>Chèque, espèces ou CESU+*.</em></p>
               </div>
 
             </div>
@@ -372,6 +350,36 @@
             </div>
 
           </div>
+
+          <div id="details-tarifs">
+          </div>
+          <div class="js-sliding-panel panel-1"><a class="close-button" role="button" href="#tarifs" data-lci-button-type="close" data-lci-panel-location="parent"></a>
+            <div class="content">
+              <p>
+                <span class="bold">Le Chèque Emploi Service Universel (CESU)</span> permet à un particulier d'employer facilement quelqu'un pour <a href="https://www.service-public.fr/particuliers/vosdroits/F13244" target="_blank">certaines activités</a> qui entrent dans la catégorie des services à la personne. Ceci est valable pour l'assistance informatique à domicile.
+              </p>
+              <h3 class="bold text-align-center">Comment ça marche ?</h3>
+              <p class="text-align-center">Vous devez en tout premier lieux <a href="https://www.particulier-employeur-zen.com/sinscrire-au-cesu/" target="_blank">adhérer au CESU déclaratif</a>, puis :</p>
+              <ul>
+                <li>Vous réglez mon intervention au tarif horaire de <span class="bold">45€</span> avec le <a href="https://www.particulier-employeur-zen.com/moyens-de-paiement-cheque-virement-cesu-etc/" target="_blank">moyen de paiement</a> que vous souhaitez.</li>
+                <li>Vous faites une déclaration sur <a href="https://www.cesu.urssaf.fr" target="_blank">le site du CESU</a> en indiquant le nombre d'heures que j'ai travaillé et mon tarif horaire.</li>
+                <li>Vous êtes prévelé à la fin du mois sur votre compte du montant des charges sociales liées à la prestation, qui s'élèvent à peu près à 35€ de l'heure pour ce tarif horaire.<br><span class=" span-centered bold">Vous payez donc 80€ de l'heure en tout.</span></li>
+                <li>En avril le CESU émet une attestion fiscale dont les montant sont à reporter sur votre déclaration d'impots sur le revenu. Ces montant sont (sauf rares exceptions) préremplis sur votre déclaration en ligne, et vous bénéficiez d'un <a class="bold" href="https://www.impots.gouv.fr/portail/particulier/questions/quelle-est-la-difference-entre-une-reduction-dimpot-et-un-credit-dimpot" target="_blank">crédit d'impôt</a> <span class="bold">à hauteur de 50%</span> de vos dépenses, soit 40€ par heure facturée.</li>
+              </ul>
+              <p class="bold final-price text-align-center">Au final, ma prestation vous aura donc couté :</p>
+              <p class="bold text-align-center">40€ de l'heure*</p>
+
+              <p class="italic info">* Les charges sociales pouvant évoluer, vous pouvez utiliser <a href="https://www.cesu.urssaf.fr/decla/index.html?page=page_estimer&LANG=FR" target="_blank">ce simulateur</a> du site du CESU pour obtenir des valeurs mises à jours.</p>
+              <p class="italic info">* Certaines personnes peuvent prétendre à une exonération de cotisations patronales de Sécurité sociale. C'est le cas par exemple pour les personnes âgées de 70 ans ou plus. Plus d'informations sur <a href="https://www.cesu.urssaf.fr/info/accueil/beneficier-d-avantages/des-exonerations-adaptees/puis-je-beneficier-dune-exonerat.html" target="_blank">le site du CESU</a>.</p>
+              
+            </div>
+            <a class="button-1" role="button" href="#tarifs" data-lci-button-type="close" data-lci-panel-location="parent">Fermer</a>
+            
+            
+          </div>
+          
+
+          
 
         </div>
       </section>

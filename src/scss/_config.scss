@@ -6,58 +6,126 @@
 
 $max-width-wrapper: 1000px;
 
-// Blue tone
-// $color-1: #4545dd;
-// $color-2 : #5761be;
-// $color-3 : #8e9ed3;
+$color-chouette-1: #D3A77E;
+$color-chouette-2: darken($color-chouette-1, 30%);
+$color-chouette-3: #DDB9A9;
 
 $color-1 : #6f2db6;
-$color-2 : #8657BE;
-$color-3 : #AE8ED3;
-//$color-4 : #260057;
-//$color-5 : #BFA1E2; // = lighten($color-3,5%)
-$color-6 : #fcd5ff;
-$color-7 : #ce53ff;
+$color-2 : #9c19e7;
 
-$contrast-color-1: #9e9ad4; //#8a23b3;
-$color-1 :         #6f2db6;
-$contrast-color-2: #ad77f3f6;
+$contrast-color-1: #a99ad4;
+$contrast-color-2: #8883affa;
 
-// $color: #ce53ff;
+$buttons-color : darken($contrast-color-2,5%);
+$buttons-color : lighten($color-1,10%);
+// $buttons-color : $color-2;
 
-//$color-10 : #42B0F5;
+// body
+$body-bg-color: white;
+$body-color: darken($color-1,10%);
 
-// $color-1 : #6f2db6;
-// $color-2 : #8657BE;
-// $color-3 : #AE8ED3;
-// //$color-4 : #260057;
-// //$color-5 : #BFA1E2; // = lighten($color-3,5%)
-// $color-6 : #fcd5ff;
-// $color-7 : #ce53ff;
+// header
+$nav-bg-color: rgba(247, 247, 247, 0.95);
 
-// $contrast-color-1: #8a23b3;
-// $contrast-color-2: #2d8bb6;
+    // title - subtitle
+    $site-title-color: darken($color-2,2%);
+    // $site-subtitle-color: darken($color-1,20%);
+    $site-subtitle-color: darken($contrast-color-2,15%);
+    
 
-// BACKGROUND COLORS
-// $bg-color-1: #e37682;
-// $bg-color-2: #5f4d93;
-// $linear-gradiant-1: linear-gradient(45deg, $bg-color-1 15%, $bg-color-2 85%);
+    // nav-menu
+    $nav-menu-bg-color: $contrast-color-2;
+    $nav-menu-color: white;
+    $nav-menu-hover-color: darken($contrast-color-2,15%);
 
-// HR COLOR
+    // phone-number-area
+    $phone-number-area-bg-color: darken($contrast-color-2,15%);
+
+// Main text
+$main-color: darken($contrast-color-2,15%);
+$main-color: darken($color-1,10%);
+$main-color: #2c1777;
+$main-color: #391777;
+
+$main-section-title-color: darken($contrast-color-2,15%);
+$main-section-title-color: $color-1;
+$main-section-h3-color: darken($contrast-color-2,15%);
+$main-section-h3-color: $color-1;
+
+// hr
 $hr-color-1: #efa8b0;
 $hr-color-2: #a89cc8;
 $hr-color-3: #8cc9f0;
 $hr-linear-grandient: linear-gradient(90deg, $hr-color-1, $hr-color-2, $hr-color-3);
 
-// GRADIENTS COLORS
-// $gradient-color-1 : #eb5ec0;
-// $gradient-color-2 : #8c00ff;
-// $gradient-color-3 : #42b0f5;
+// Button-1
+$button-1-main-color: $buttons-color;
 
-// NAV BG COLOR:
-$nav-bg-color: rgba(247, 247, 247, 0.95);
-// BODY BG COLOR:
-$body-bg-color: rgb(255, 255, 255);
+$button-1-color: white;
+$button-1-bg-color: $button-1-main-color;
+$button-1-border: 1px solid transparent;
+$button-1-hover-color: $button-1-main-color;
+$button-1-hover-bg-color: white;
+$button-1-hover-border: 1px solid currentColor;
+
+
+// Close-button
+$close-button-main-color: $buttons-color;
+
+$close-button-color: lighten($close-button-main-color,20%);
+$close-button-hover-color: darken($close-button-main-color,10%);
+
+// Button-2
+$button-2-main-color: $buttons-color;
+
+$button-2-color: $button-2-main-color;
+$button-2-bg-color: white;
+$button-2-border: 1px solid currentColor;
+$button-2-hover-color: white;
+$button-2-hover-bg-color: $button-2-main-color;
+$button-2-hover-border: 1px solid transparent;
+
+// Tarifs old site backup
+// $tarif-1-bg-color: #9e9ad4;
+// $tarif-2-bg-color: #6f2db6;
+// $tarif-3-bg-color: rgba(173,119,243,.964706);
+
+// Tarifs Norma backup
+$tarif-1-bg-color: #8883affa;
+$tarif-2-bg-color: #664ca1;
+$tarif-3-bg-color: darken($color-2,5%);
+
+// Tarifs
+// $tarif-1-bg-color: darken($color-2,5%);
+// $tarif-2-bg-color: #6f2db6;
+// $tarif-3-bg-color: #726bdd;
+
+// $tarif-1-bg-color: #8883affa;
+// $tarif-2-bg-color: #6f2db6;
+// $tarif-3-bg-color: darken($color-2,5%);
+
+// Contact
+// $contact-link-hover-bg-color: $color-2;
+$contact-link-hover-bg-color: $buttons-color;
+$contact-link-hover-color: white;
+
+// footer
+$footer-text-color: white;
+// $footer-bg-color-1: #ada4c9;
+// $footer-bg-color-2: #72768dfa;
+$footer-bg-color-1: darken(#948cb1,10%);
+$footer-bg-color-2: darken(#544e85fa,15%);
+
+// $footer-link-color: lighten($color-1,40%);
+// $footer-link-color: #c8b2e9;
+// $footer-link-color: lighten($color-2,40%);
+$footer-link-color: rgb(222, 188, 255);
+// $footer-link-color:rgb(231, 193, 89);
+
+// $footer-link-hover-color : rgb(179, 98, 255);
+// $footer-link-hover-color : rgb(233, 143, 233);
+// $footer-link-hover-color : violet;
+$footer-link-hover-color : rgb(219, 129, 255);
 
 $tittle-font-size-l: calc(32px + 1vw);
 $tittle-font-size-m: 26px;
@@ -66,3 +134,15 @@ $tittle-font-size-xs: 18px;
 
 $font-size-l: 18px;
 $font-size-s: 17px;
+
+
+
+// Backup 06/05/21
+
+// $color-0 : white;
+// $color-1 : #6f2db6;
+// $color-2 : #8657BE;
+// $color-3 : #AE8ED3;
+// $contrast-color-1: #9e9ad4;
+// $contrast-color-2: #ad77f3f6;
+// $contrast-color-3: #ce53ff;

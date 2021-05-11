@@ -8,7 +8,7 @@ main {
     // word-break: break-all;
     word-wrap: break-word;
     padding-bottom: 3em;
-
+    color: $main-color;
     flex-grow:1;
 
     section {
@@ -24,6 +24,7 @@ main {
         }
     
         h1 {
+            color: $main-section-title-color;
             text-align: center;
             width: 100%;
             font-family: 'Courgette', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -42,6 +43,7 @@ main {
         }
 
         h3 {
+            color: $main-section-h3-color;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
             font-weight: 600;
             font-size: 1.03em;
@@ -60,13 +62,12 @@ main {
     }
 
     .button-1 {
-        border: none;
-        border: 1px solid transparent;
+        border: $button-1-border;
         margin: 0 0.7em;
         padding: 0.5em 1em;
         border-radius: 0.4em;
-        background-color: lighten($color-1,10%); // rgba($color-1, 0.7);
-        color: white;
+        background-color: $button-1-bg-color;
+        color: $button-1-color;
         text-transform: uppercase;
         font-family: Tahoma, Geneva, Verdana, sans-serif;
         font-size: 0.7em;
@@ -77,26 +78,71 @@ main {
         display: inline-block;
         line-height: 1.07em;
 
-        &:hover, &.active {
-            // background-color: lighten($color-1,25%);//rgba($color-1, 0.466);
-            // transform: scale(1.1,1.1);
+        &:hover,
+        &[data-command="close"] {
             box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.5);
-            color: lighten($color-1,10%);
-            background-color: white;
-            border: 1px solid currentColor;
+            color: $button-1-hover-color;
+            background-color: $button-1-hover-bg-color;
+            border: $button-1-hover-border;
         }
+    }
 
-        &-rev {
-            @extend .button-1;
-            color: lighten($color-1,10%);
-            background-color: white;
-            border: 1px solid currentColor;
-    
-            &:hover, &.active {
-                background-color: lighten($color-1,10%); // rgba($color-1, 0.7);
-                color: white;
-                border: 1px solid transparent;
-            }
+    .button-2 {
+        @extend .button-1;
+        color: $button-2-color;
+        background-color: $button-2-bg-color;
+        border: $button-2-border;
+
+        &:hover,
+        &[data-command="close"] {
+            background-color: $button-2-hover-bg-color;
+            color: $button-2-hover-color;
+            border: $button-2-hover-border;
+        }
+    }
+
+    .panel-1 {
+        width: 100%;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 0.4em;
+        background-color: darken(white,3%);
+        box-shadow: 0.25em 0.25em 0.5em rgba(black, 0.3),
+                    0 0 10px rgba(black, 0.1) inset;
+        position: relative;
+
+        text-align: justify;
+
+
+    }
+
+    .close-button {
+        font-size: 1em;
+        position: absolute !important;
+        right: 0.6em;
+        top: 0.6em;
+        width: 1em;
+        height: 1em;
+        border: none;
+        background-color: rgba(0, 0, 0, 0);
+
+        &:hover:before, &:hover:after {
+            background-color: $close-button-hover-color;
+        }
+        &:before, &:after {
+            position: absolute;
+            left: 0.55em;
+            top: -0.1em;
+            content: ' ';
+            height: 1em;
+            width: 0.2em;
+            background-color: $close-button-color;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
         }
     }
 

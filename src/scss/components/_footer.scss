@@ -1,10 +1,9 @@
 footer {
     //background-color: $color-2;
-    background-color: lighten($color-3,5%);
-    background-image: linear-gradient(180deg, lighten($color-3,5%) 20%, $color-2 100%);
-    //background-image: url($assets-path + '/img/bg3.jpg');
+    background-color: $footer-bg-color-1;
+    background-image: linear-gradient(180deg, $footer-bg-color-1 20%, $footer-bg-color-2 100%);
 
-    color: white;
+    color: $footer-text-color;
     padding: 1em;
     font-size: 0.9em;
     position: relative;
@@ -21,16 +20,12 @@ footer {
     }
 
     a {
-        color: $color-1;
+        color: $footer-link-color;
         font-weight: 600;
 
         &:hover {
-            color: $color-6;
+            color: $footer-link-hover-color;
         }
-
-        // i {
-        //     font-size: 1.1em;
-        // }
     }
 
     h3 {
@@ -98,7 +93,7 @@ footer {
     border-radius: 0.5em;
 
     &:hover {
-        border: 0.1em solid $color-6;
+        border: 0.1em solid $footer-link-hover-color;
     }
 }
 

@@ -1,18 +1,22 @@
 
 #tarifs {
 
+    .wrapper {
+        margin: 0 auto;
+        justify-content: center;
+    }
+
     h1 {
         margin-bottom: 0;
     }
 
     .flex-row {
-        // max-width: $max-width-wrapper;
         align-items: stretch;
-        // justify-content: space-around;
     }
 
     .button-1 {
         font-size: 0.8em;
+        vertical-align: top;
     }
 
     .column {
@@ -24,39 +28,35 @@
                     0 0 15px rgba(black, 0.3) inset;
         transition: 0.3s ease;
         overflow: hidden;
-        background-color: $color-1;
+        background-color: $tarif-2-bg-color;
         display: flex;
         flex-direction: column;
         position: relative;
 
         &.variant-1 {
-            $contrast-bg-color: $contrast-color-1;
-            $contrast-text-color: darken($contrast-color-1, 10%);
-
-            background-color: $contrast-bg-color;
-            color: $contrast-text-color;
+            background-color: $tarif-1-bg-color;
+            color: darken($tarif-1-bg-color, 10%);
 
             .button-1 {
-                background-color: $contrast-bg-color;
+                background-color: $tarif-1-bg-color;
+                border: 1px solid transparent;
 
                 &:hover {
-                    color: $contrast-text-color;
+                    color: darken($tarif-1-bg-color, 10%);
                     background-color: white;
+                    border: 1px solid currentColor;
                 }
             }
         }
         &.variant-2 {
-            $contrast-bg-color: $contrast-color-2;
-            $contrast-text-color: darken($contrast-color-2, 10%);
-
-            background-color: $contrast-bg-color;
-            color: $contrast-text-color;
+            background-color: $tarif-3-bg-color;
+            color: darken($tarif-3-bg-color, 10%);
 
             .button-1 {
-                background-color: $contrast-bg-color;
+                background-color: $tarif-3-bg-color;
 
                 &:hover {
-                    color: $contrast-text-color;
+                    color: darken($tarif-3-bg-color, 10%);
                     background-color: white;
                 }
             }
@@ -158,6 +158,15 @@
                 &:first-child {
                     margin-top: 0;
                     font-size: 0.95em;
+
+                    span {
+                        font-size: 0.84211em;
+                        font-style: italic;
+                    }
+
+                    [class^="button"] {
+                        font-size: 0.673685em;
+                    }
                 }
                 &:last-child {
                     margin-bottom: 0;
@@ -177,6 +186,94 @@
             margin: 3px 3px;
         }
     }
+
+    #details-tarifs {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .panel-1 {
+        .content {
+            a {
+                color: purple;
+                border-bottom: 1px dotted currentColor;
+            }
+
+            .button-1 {
+                background-color: $tarif-1-bg-color;
+                border: 1px solid transparent;
+
+                &:hover {
+                    color: darken($tarif-1-bg-color, 10%);
+                    background-color: white;
+                    border: 1px solid currentColor;
+                }
+            }
+
+            h3 {
+                padding: 0 1.25em;
+                color: currentColor;
+                font-size: 1.3em;
+                margin-top: 0;
+            }
+
+            p {
+                padding: 0 1.25em;
+                // padding: 0.8em 1.25em;
+
+                &:first-child {
+                    padding-top: 0.9em;
+                }
+            }
+
+            ul {
+                margin-top: 0;
+                margin-right: 1.25em;
+                list-style-type: decimal;
+
+                li {
+                    margin-bottom: 8px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+            }
+
+            .span-centered {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5em;
+                margin-bottom: 0.056em;
+            }
+
+            .final-price {
+                margin-bottom: 0.3em;
+                & + p {
+                font-size: 1.2em;
+                color: lighten($main-color,25%);
+                margin-top: 0;
+                }
+            }
+
+            .info {
+                font-size: 0.9em;
+                margin: 0 0 0.5em;
+            }
+
+            
+            
+
+        }
+
+        .button-1 {
+            display: block;
+            width: min-content;
+            margin: 1.8em auto 1.8em;
+        }
+    }
+
 }
 
 @media only screen and (max-width: 900px) {

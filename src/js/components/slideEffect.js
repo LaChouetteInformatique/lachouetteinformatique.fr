@@ -23,12 +23,15 @@ let slideDownTransitionEndListener = null;
 const slideUp = async (element, duration = 300, buttonToToogle = null) => {
   return new Promise(function (resolve/*, reject*/) {
     try {
-      if (duration == null) duration = 300;
-      if( buttonToToogle ) buttonToToogle.setAttribute('data-command', 'open');
+      if (duration == null || isNaN(duration))
+        duration = 300;
+      if( buttonToToogle )
+        buttonToToogle.setAttribute('data-command', 'open');
 
       let customResolve = () => {
         element.style.display = 'none';
-        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'closed');
+        if( buttonToToogle )
+          buttonToToogle.setAttribute('data-panel-state', 'closed');
         element.setAttribute('data-state', 'closed');
         // element.dispatchEvent(new Event('slide-up-end'));
         resolve();
@@ -50,13 +53,13 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
         }
 
         // If a slideDown animation is in progress
-        if (element.getAttribute('data-state') === "sliddingDown") {
+        if (element.getAttribute('data-state') === "sliddingDown")
           element.removeEventListener(transitionEnd, slideDownTransitionEndListener, { once : true });
-        }
 
         // To enable CSS transition on element with no height specified (height: auto), we must set height.
         let height = element.offsetHeight;
-        if (element.getAttribute('data-state') != "sliddingDown") element.setAttribute('data-full-height', height);
+        if (element.getAttribute('data-state') != "sliddingDown")
+          element.setAttribute('data-full-height', height);
         element.style.height = height + 'px';
 
         element.style.transitionProperty = 'height, margin, padding';
@@ -73,7 +76,8 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
         element.style.marginTop = 0;
         element.style.marginBottom = 0;
 
-        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'sliddingUp');
+        if( buttonToToogle )
+          buttonToToogle.setAttribute('data-panel-state', 'sliddingUp');
         element.setAttribute('data-state', 'sliddingUp');
         // element.dispatchEvent(new Event('slide-up-start'));
         element.addEventListener(transitionEnd, slideUpTransitionEndListener, { once : true });
@@ -100,11 +104,14 @@ const slideUp = async (element, duration = 300, buttonToToogle = null) => {
 const slideDown = async (element, duration = 300, buttonToToogle = null) => {
   return new Promise(function (resolve, reject) {
     try {
-      if (duration == null) duration = 300;
-      if( buttonToToogle ) buttonToToogle.setAttribute('data-command', 'close');
+      if (duration == null || isNaN(duration))
+        duration = 300;
+      if( buttonToToogle )
+        buttonToToogle.setAttribute('data-command', 'close');
 
       let customResolve = () => {
-        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'open');
+        if( buttonToToogle )
+          buttonToToogle.setAttribute('data-panel-state', 'open');
         element.setAttribute('data-state', 'open');
         // element.dispatchEvent(new Event('slide-down-end'));
         resolve();
@@ -138,7 +145,8 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
         // No slideUp animation in progress
         else {
           element.style.removeProperty('display');
-          if (window.getComputedStyle(element).display === 'none') element.style.display = 'block';
+          if (window.getComputedStyle(element).display === 'none')
+            element.style.display = 'block';
 
           let height = element.offsetHeight; // redraw
 
@@ -164,13 +172,15 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
           element.style.removeProperty('margin-bottom');
         }
         // element.dispatchEvent(new Event('slide-down-start'));
-        if( buttonToToogle ) buttonToToogle.setAttribute('data-panel-state', 'sliddingDown');
+        if( buttonToToogle )
+          buttonToToogle.setAttribute('data-panel-state', 'sliddingDown');
         element.setAttribute('data-state', 'sliddingDown');
         element.addEventListener(transitionEnd, slideDownTransitionEndListener, { once : true });
       }
       else { // No animation
         element.style.removeProperty('display');
-        if (window.getComputedStyle(element).display === 'none') element.style.display = 'block';
+        if (window.getComputedStyle(element).display === 'none')
+          element.style.display = 'block';
         customResolve();
       }
     }
@@ -194,7 +204,8 @@ const slideDown = async (element, duration = 300, buttonToToogle = null) => {
 const slideToggle = async (element, duration = 300, buttonToToogle = null) => {
 
   try {
-    if (typeof(duration) != typeof(10)) duration = 300;
+    if (duration == null || isNaN(duration))
+      duration = 300;
 
     let state = element.getAttribute('data-state');
 

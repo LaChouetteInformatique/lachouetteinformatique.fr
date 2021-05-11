@@ -1,14 +1,15 @@
 // eslint-disable-next-line no-unused-vars
 import style from '../scss/style.scss';
-import {accordion} from './components/accordions';
+import {slidingPanels} from './components/slidingPanels';
 import {stickyHeader} from './components/stickyHeader';
 import {decodeScrambledLinks} from './components/decodeScrambledLinks';
 import {scrollTopButton} from './components/scrollTopButton';
 
+
 document.addEventListener( 'DOMContentLoaded', function( /*event*/ ) {
 
      decodeScrambledLinks.init();
-	accordion.init();
+	slidingPanels.init();
 	stickyHeader.init();
      scrollTopButton.init();
 
